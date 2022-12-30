@@ -1,0 +1,6 @@
+{
+  "HelloWorld": "Ciao mondo!",
+  "Second/HelloWorld": "Ciao mondo! (different context)",
+  "Language": "Lingua",
+  "SetByCode": "Impostato da codice"
+}

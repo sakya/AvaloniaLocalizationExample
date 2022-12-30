@@ -1,0 +1,6 @@
+{
+  "HelloWorld": "Hello World!",
+  "Second/HelloWorld": "Hello World (different context)",
+  "Language": "Language",
+  "SetByCode": "Set by code"
+}
