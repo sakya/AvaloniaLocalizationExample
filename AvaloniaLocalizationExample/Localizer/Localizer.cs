@@ -23,11 +23,10 @@
         public bool LoadLanguage(string language)
         {
             Language = language;
-            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
 
             Uri uri = new Uri($"avares://AvaloniaLocalizationExample/Assets/i18n/{language}.json");
-            if (assets.Exists(uri)) {
-                using (StreamReader sr = new StreamReader(assets.Open(uri), Encoding.UTF8)) {
+            if (AssetLoader.Exists(uri)) {
+                using (StreamReader sr = new StreamReader(AssetLoader.Open(uri), Encoding.UTF8)) {
                     m_Strings = JsonConvert.DeserializeObject<Dictionary<string, string>>(sr.ReadToEnd());
                 }
                 Invalidate();
@@ -35,7 +34,7 @@
                 return true;
             }
             return false;
-        } // LoadLanguage
+        }
 
         public string Language { get; private set; }
 
@@ -43,8 +42,7 @@
         {
             get
             {
-                string res;
-                if (m_Strings != null && m_Strings.TryGetValue(key, out res))
+                if (m_Strings != null && m_Strings.TryGetValue(key, out string res))
                     return res.Replace("\\n", "\n");
 
                 return $"{Language}:{key}";
