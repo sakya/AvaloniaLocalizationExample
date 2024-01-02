@@ -1,10 +1,12 @@
-﻿namespace AvaloniaLocalizationExample.Localizer
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace AvaloniaLocalizationExample.Localizer
 {
     using System;
     using Avalonia.Data;
     using Avalonia.Markup.Xaml;
     using Avalonia.Markup.Xaml.MarkupExtensions;
-    
+
     public class LocalizeExtension : MarkupExtension
     {
         public LocalizeExtension(string key)
@@ -16,6 +18,7 @@
 
         public string Context { get; set; }
 
+        [DynamicDependency(DynamicallyAccessedMemberTypes.PublicProperties, typeof(Localizer))]
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             var keyToUse = Key;

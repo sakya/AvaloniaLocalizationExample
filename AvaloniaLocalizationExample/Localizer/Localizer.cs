@@ -1,6 +1,5 @@
 ﻿namespace AvaloniaLocalizationExample.Localizer
 {
-    using Avalonia;
     using Avalonia.Platform;
     using Newtonsoft.Json;
     using System;
@@ -14,11 +13,6 @@
         private const string IndexerName = "Item";
         private const string IndexerArrayName = "Item[]";
         private Dictionary<string, string> m_Strings = null;
-
-        public Localizer()
-        {
-
-        }
 
         public bool LoadLanguage(string language)
         {
